@@ -38,7 +38,7 @@ String url="https://www.rent.ie/";
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 		driver.findElement(By.xpath("//div[contains(@class,'search_result')][1]//div[contains(@class,'sresult_address')]//a")).click();
-		EmailAgent(driver, "Vinayak Pisal", "customers.ffhomes@gmail.com", "+353892554821", "Hello , Me and my partner and more 2 our friends are looking for a permanent accommodation. " + '\n' + " We came across your advertisement and we are very much interested in renting it." + '\n' + " We all are  working in the Dublin. " + '\n' + " Earning more than 80000+ euros combinely yearly and can provide pay slips and references." + '\n' + " We are clean, peaceful, vegetarian, non party and non smokers. " + '\n' + " We don’t have pets with us. We maintain the cleanliness standard of the house. " + '\n' + " I would like to know if you can arange viewing." + '\n' + " We can move in immediately as well. " + '\n' + " Thank you, " + '\n' + " Kajal");
+		EmailAgent(driver, "Test", "custs@gmail.com", "+35388888888", "Hello , Me and my partner and more 2 our friends are looking for a permanent accommodation. " + '\n' + " We came across your advertisement and we are very much interested in renting it." + '\n' + " We all are  working in the Dublin. " + '\n' + " Earning more than 80000+ euros combinely yearly and can provide pay slips and references." + '\n' + " We are clean, peaceful, vegetarian, non party and non smokers. " + '\n' + " We don’t have pets with us. We maintain the cleanliness standard of the house. " + '\n' + " I would like to know if you can arange viewing." + '\n' + " We can move in immediately as well. " + '\n' + " Thank you, " + '\n' + " Test");
 		driver.navigate().back();
 		for(int i=2;i<=getsize;i++){
 			Thread.sleep(3000);
@@ -46,7 +46,7 @@ String url="https://www.rent.ie/";
 			driver.findElement(By.xpath("//div[contains(@class,'search_result')]["+i+"]//div[contains(@class,'sresult_address')]//a")).click();
 			Thread.sleep(5000);
 //			driver.navigate().refresh();
-			EmailAgent(driver, "Vinayak Pisal", "customers.ffhomes@gmail.com", "+353892554821", "Hello , Me and my partner and more 2 our friends are looking for a permanent accommodation. " + '\n' + " We came across your advertisement and we are very much interested in renting it." + '\n' + " We all are  working in the Dublin. " + '\n' + " Earning more than 80000+ euros combinely yearly and can provide pay slips and references." + '\n' + " We are clean, peaceful, vegetarian, non party and non smokers. " + '\n' + " We don’t have pets with us. We maintain the cleanliness standard of the house. " + '\n' + " I would like to know if you can arange viewing." + '\n' + " We can move in immediately as well. " + '\n' + " Thank you, " + '\n' + " Kajal");
+			EmailAgent(driver, "Test", "custo@gmail.com", "+353879345678", "Hello , Me and my partner and more 2 our friends are looking for a permanent accommodation. " + '\n' + " We came across your advertisement and we are very much interested in renting it." + '\n' + " We all are  working in the Dublin. " + '\n' + " Earning more than 80000+ euros combinely yearly and can provide pay slips and references." + '\n' + " We are clean, peaceful, vegetarian, non party and non smokers. " + '\n' + " We don’t have pets with us. We maintain the cleanliness standard of the house. " + '\n' + " I would like to know if you can arange viewing." + '\n' + " We can move in immediately as well. " + '\n' + " Thank you, " + '\n' + " Test");
 			driver.navigate().back();
 		}
 		ScrollUpDown(driver, pageloc_btn);
@@ -63,7 +63,7 @@ String url="https://www.rent.ie/";
 				driver.findElement(By.xpath("//div[contains(@class,'search_result')]["+i+"]//div[contains(@class,'sresult_address')]//a")).click();
 				Thread.sleep(5000);
 //				driver.navigate().refresh();
-				EmailAgent(driver, "Vinayak Pisal", "customers.ffhomes@gmail.com", "+353892554821", "Hello , Me and my partner and more 2 our friends are looking for a permanent accommodation. " + '\n' + " We came across your advertisement and we are very much interested in renting it." + '\n' + " We all are  working in the Dublin. " + '\n' + " Earning more than 80000+ euros combinely yearly and can provide pay slips and references." + '\n' + " We are clean, peaceful, vegetarian, non party and non smokers. " + '\n' + " We don’t have pets with us. We maintain the cleanliness standard of the house. " + '\n' + " I would like to know if you can arange viewing." + '\n' + " We can move in immediately as well. " + '\n' + " Thank you, " + '\n' + " Kajal");
+				EmailAgent(driver, "Testl", "cuses@gmail.com", "+3538892222222", "Hello , Me and my partner and more 2 our friends are looking for a permanent accommodation. " + '\n' + " We came across your advertisement and we are very much interested in renting it." + '\n' + " We all are  working in the Dublin. " + '\n' + " Earning more than 80000+ euros combinely yearly and can provide pay slips and references." + '\n' + " We are clean, peaceful, vegetarian, non party and non smokers. " + '\n' + " We don’t have pets with us. We maintain the cleanliness standard of the house. " + '\n' + " I would like to know if you can arange viewing." + '\n' + " We can move in immediately as well. " + '\n' + " Thank you, " + '\n' + " Test");
 				driver.navigate().back();
 			}
 		}else{
