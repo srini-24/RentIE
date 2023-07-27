@@ -1,0 +1,164 @@
+package com.rentproject.com;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class RentIE220323 {
+	
+	public static void main (String[] args) throws InterruptedException{
+		
+String url="https://www.rent.ie/";
+		
+		By acceptall_loc=By.xpath("//button[contains(text(),'Acc')]");
+		By email_btn=By.xpath("//button[contains(text(),'Email')]");
+		By close_btn=By.xpath("//div[contains(@aria-label,'Close')]");
+		By fullname_loc=By.xpath("//input[contains(@id,'fname_pop')]");
+		By nextbtn_loc=By.xpath("//span[contains(text(),'Next')]");
+		By pageloc_btn=By.xpath("//a[contains(@title,'Page')]");
+		
+		System.setProperty("webdriver.chrome.driver", ".\\Drivers\\chromedriver_114.exe");
+		WebDriver driver  =new ChromeDriver();
+		driver.get(url);
+		driver.manage().window().maximize();
+		
+		Thread.sleep(3000);
+		driver.findElement(acceptall_loc).click();
+		
+		JumboSearchBox(driver, "Dublin", "Dublin 6", "400", "2500", "Any");
+		
+		Thread.sleep(3000);
+		int getsize=driver.findElements(By.xpath("//div[contains(@class,'search_result')]")).size();
+		Thread.sleep(3000);
+		ScrollUpDown(driver, By.xpath("//div[@class='search_result'][1]//div[contains(@class,'sresult_address')]"));
+		driver.findElement(By.xpath("//div[@class='search_result'][1]//div[contains(@class,'sresult_address')]//a")).click();
+		Thread.sleep(5000);
+		driver.navigate().refresh();
+		driver.findElement(By.xpath("//div[@class='search_result'][1]//div[contains(@class,'sresult_address')]//a")).click();
+//		EmailAgent(driver, "Vinayak", "vishnuramesh1995@gmail.com", "+353899475286", "Hi " + '\n' + " We are 2 peoples working professionals with salary of 100Kper year. Living in current apartment last 4 Years. Landlord wants to sell the house so we have to move out immediately." + '\n' + " We are highly interested in this apartment. Can I  get an appointment for viewing please and it would be really appreciated." + '\n' + " Requesting for apartments  " + '\n' + " Mobile number: 0899475286" + '\n' + " Please do not hesitate to contact me " + '\n' + " Regards " + '\n' + "Vishnu Ramesh");
+		EmailAgent(driver, "Vinayak", "info.failtefuturehomes@gmail.com", "+353892554821", "Hello ," + '\n' + " Me ad my fiancé are looking for a permanent accommodation." + '\n' + " We came across your advertisement and we are very much interested in renting it." + '\n' + " We both are full time working professionals earning more than 70000+ euros yearly and can provide pay slips and references." + '\n' + " We are clean, peaceful, vegetarian, non party and non smokers. " + '\n' + " We don’t have pets with us. We maintain the cleanliness standard of the house. " + '\n' + " I would like to know if there is any possibility that we can have a viewing. " + '\n' + " We can move in immediately as well. " + '\n' + " Thank you," + '\n' + " Vinayak");
+		driver.navigate().back();
+		for(int i=2;i<=getsize;i++){
+			Thread.sleep(3000);
+			ScrollUpDown(driver, By.xpath("//div[@class='search_result']["+i+"]//div[contains(@class,'sresult_address')]"));
+			driver.findElement(By.xpath("//div[@class='search_result']["+i+"]//div[contains(@class,'sresult_address')]//a")).click();
+			Thread.sleep(5000);
+//			driver.navigate().refresh();
+			EmailAgent(driver, "Vinayak", "info.failtefuturehomes@gmail.com", "+353892554821", "Hello ," + '\n' + " Me ad my fiancé are looking for a permanent accommodation." + '\n' + " We came across your advertisement and we are very much interested in renting it." + '\n' + " We both are full time working professionals earning more than 70000+ euros yearly and can provide pay slips and references." + '\n' + " We are clean, peaceful, vegetarian, non party and non smokers. " + '\n' + " We don’t have pets with us. We maintain the cleanliness standard of the house. " + '\n' + " I would like to know if there is any possibility that we can have a viewing. " + '\n' + " We can move in immediately as well. " + '\n' + " Thank you," + '\n' + "  Vinayak");
+			driver.navigate().back();
+		}
+		ScrollUpDown(driver, pageloc_btn);
+		boolean next_btn=driver.findElement(pageloc_btn).isDisplayed();
+		if(next_btn){
+			Thread.sleep(3000);
+			driver.findElement(nextbtn_loc).click();
+			driver.navigate().refresh();
+			driver.findElement(nextbtn_loc).click();
+			int getsizee=driver.findElements(By.xpath("//div[contains(@class,'search_result')]")).size();
+			for(int i=1;i<=getsizee;i++){
+				Thread.sleep(3000);
+				ScrollUpDown(driver, By.xpath("//div[@class='search_result']["+i+"]//div[contains(@class,'sresult_address')]"));
+				driver.findElement(By.xpath("//div[@class='search_result']["+i+"]//div[contains(@class,'sresult_address')]//a")).click();
+				Thread.sleep(5000);
+//				driver.navigate().refresh();
+//				EmailAgent(driver, "Vishnu Ramesh", "vishnuramesh1995@gmail.com", "+353899475286", "Hi " + '\n' + " We are 2 peoples working professionals with salary of 100Kper year. Living in current apartment last 4 Years. Landlord wants to sell the house so we have to move out immediately." + '\n' + " We are highly interested in this apartment. Can I  get an appointment for viewing please and it would be really appreciated." + '\n' + " Requesting for  apartments  " + '\n' + " Mobile number: 0899475286" + '\n' + " Please do not hesitate to contact me " + '\n' + " Regards " + '\n' + "Vishnu Ramesh");
+				EmailAgent(driver, "Vinayak", "info.failtefuturehomes@gmail.com", "+353892554821", "Hello ," + '\n' + " Me ad my fiancé are looking for a permanent accommodation." + '\n' + " We came across your advertisement and we are very much interested in renting it." + '\n' + " We both are full time working professionals earning more than 70000+ euros yearly and can provide pay slips and references." + '\n' + " We are clean, peaceful, vegetarian, non party and non smokers. " + '\n' + " We don’t have pets with us. We maintain the cleanliness standard of the house. " + '\n' + " I would like to know if there is any possibility that we can have a viewing. " + '\n' + " We can move in immediately as well. " + '\n' + " Thank you," + '\n' + "  Vinayak");
+				driver.navigate().back();
+			}
+		}else{
+			driver.quit();
+		}
+		
+		driver.quit();
+		
+		
+	}
+	
+	public static boolean ScrollUpDown(WebDriver driver,By ele){
+		try{
+			Thread.sleep(1000);
+			WebElement element=driver.findElement(ele);
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+			Thread.sleep(2000);
+			driver.findElement(ele).isDisplayed();
+		}catch(Exception e){
+			return false;
+		}
+		return true;
+	}
+	
+	public static boolean EmailAgent(WebDriver driver,String fullname,String email,String contactnumber,String message){
+		try{
+			By email_btn=By.xpath("//button[contains(text(),'Email')]");
+			By fullname_loc=By.xpath("//input[contains(@id,'fname_pop')]");
+			By email_loc=By.xpath("//input[contains(@id,'femail_pop')]");
+			By contact_num=By.xpath("//input[contains(@id,'fcontact_number_pop')]");
+			By msg_area=By.xpath("//textarea[contains(@id,'fcontact_textarea_pop')]");
+			By check_box=By.xpath("//input[contains(@type,'checkbox')]");
+			By emailagent_btn=By.xpath("//input[contains(@id,'ajax_reply_pop')]");
+			
+			Thread.sleep(3000);
+			driver.findElement(email_btn).click();
+			driver.findElement(fullname_loc).clear();
+			Thread.sleep(1500);
+			driver.findElement(fullname_loc).sendKeys(fullname);
+			Thread.sleep(1500);
+			driver.findElement(email_loc).sendKeys(email);
+			Thread.sleep(1500);
+			driver.findElement(contact_num).sendKeys(contactnumber);
+			Thread.sleep(1500);
+			driver.findElement(msg_area).sendKeys(message);
+			Thread.sleep(1500);
+			driver.findElement(check_box).click();
+			Thread.sleep(3000);
+			driver.findElement(emailagent_btn).click();
+			
+		}catch(Exception e){
+			return false;
+		}
+		return true;
+	}
+	
+	public static boolean JumboSearchBox(WebDriver driver,String county,String Area,String minprice,String maxprice,String beds){
+		try{
+			
+			By search_btn=By.xpath("//input[contains(@name,'submit')]");
+			
+			Thread.sleep(3000);
+			WebElement tstdrpdwn=driver.findElement(By.id("county"));
+			Select dropdwn=new Select(tstdrpdwn);
+			dropdwn.selectByVisibleText(county);
+			
+			Thread.sleep(1500);
+			WebElement tstdrpdwn1=driver.findElement(By.id("area"));
+			Select dropdwn1=new Select(tstdrpdwn1);
+			dropdwn1.selectByVisibleText(Area);
+			
+			Thread.sleep(1500);
+			WebElement tstdrpdwn2=driver.findElement(By.id("minp"));
+			Select dropdwn2=new Select(tstdrpdwn2);
+			dropdwn2.selectByValue(minprice);
+			
+			Thread.sleep(1500);
+			WebElement tstdrpdwn3=driver.findElement(By.id("maxp"));
+			Select dropdwn3=new Select(tstdrpdwn3);
+			dropdwn3.selectByValue(maxprice);
+			
+			Thread.sleep(1500);
+			WebElement tstdrpdwn4=driver.findElement(By.id("beds"));
+			Select dropdwn4=new Select(tstdrpdwn4);
+			dropdwn4.selectByVisibleText(beds);
+			
+			Thread.sleep(3000);
+			driver.findElement(search_btn).click();
+			
+		}catch(Exception e){
+			return false;
+		}
+		return true;
+	}
+
+}
